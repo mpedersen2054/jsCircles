@@ -4,7 +4,7 @@
 
 	<style>
 		#wrapper {
-			width: 100%;
+			max-width: 100%;
 			height: 100%;
 		}
 		#svg {
@@ -53,7 +53,7 @@
 			var el = document.getElementById(html_id);
 
 			//see if the circle is going outside the browser. if it is, reverse the velocity
-			if( this.info.cx > document.body.clientWidth || this.info.cx < 0)
+			if( this.info.cx + radius > document.body.clientWidth || this.info.cx < 0)
 			{
 				this.info.velocity.x = this.info.velocity.x * -1;
 			}
@@ -111,6 +111,9 @@
 	document.onclick = function(e) {
 		playground.createNewCircle(e.x,e.y);
 	}
+
+	// var radius = document.querySelector('circle').getAttribute('r')
+	var radius = document.getElementById('0').getAttribute('r')
 
 	</script>
 
